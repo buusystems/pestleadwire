@@ -1,28 +1,34 @@
-# PestLeadWire
+# PestLeadWire landing page
 
-pestleadwire.buusystems.com, a BUU Systems project. Shows how PestLeadWire connects
-demand (businesses and buildings with public pest violations) to supply (licensed pest
-control pros), plus live pest records for any zip code in New York City and Chicago.
+https://pestleadwire.buusystems.com, the public page for PestLeadWire (operated by BUU Systems LLC).
+It sells the weekly lead lists that the PestLeadWire app (`buusystems/pestleadwire-app`,
+app.pestleadwire.buusystems.com) builds: businesses cited for pest problems on public health
+inspections, sent to pest control companies every Monday.
 
-Static site: `index.html`, `styles.css`, `app.js`. No build step and no backend. The
-browser queries the city Socrata APIs directly (CORS open, no key):
+Static site served by GitHub Pages from `main`: `index.html`, `styles.css`, `app.js`, `data/snapshot.json`.
 
-| City | Source | Dataset |
-|------|--------|---------|
-| NYC | DOHMH restaurant inspections, codes 04K rats, 04L mice, 04M roaches, 04N flies | `43nn-pn8j` |
-| NYC | HPD housing violations mentioning infestation / bed bugs | `wvxf-dwi5` |
-| NYC | 311 `Rodent` complaints | `erm2-nwe9` |
-| Chicago | CDPH food inspections citing item 38 (insects, rodents and animals) | `4ijn-s7e5` |
-| Chicago | 311 `Rodent Baiting/Rat Complaint` | `v6vf-nfxy` |
+## What the page shows
 
-Housing and 311 addresses are rounded to the block (`200 block of East 5 Street`).
+- **Near you:** a visitor types a ZIP and sees how many businesses were cited within 10 miles over the last
+  14 days, plus the three closest as rows of the list (name, miles, type, date, what the inspector found;
+  phone and street hidden). ZIPs that no feed reaches get a "not covered yet" message.
+- **Coverage:** every market and state the app covers, with this fortnight's counts.
+- **Pricing:** free sample list, then the 4-week pilot at $40/week (the app's `DEFAULT_PILOT_PRICE`).
+- **Free list form:** opens the visitor's email app addressed to pestleadwire@gmail.com.
+
+No record ids or portal links are shown, and the page never claims a citation means a business asked for
+pest control (same rules as the app's client emails).
+
+## Refreshing the numbers
+
+`data/snapshot.json` is built from the app's own feed code (free public data, no Google calls):
+
+    python3 scripts/snapshot.py --app ~/code/pestleadwire-app   # ~15 s
+    git commit -am "Snapshot $(date +%F)" && git push
+
+It writes per-market counts and, for every ZIP within reach of a feed, the count within 10 miles and
+the three nearest examples. When the app adds markets, re-run it: coverage on the page follows.
 
 ## Run locally
 
-    python3 -m http.server 8761      # then open http://localhost:8761/?zip=10003
-
-## Deploy (not done yet)
-
-`CNAME` is set for GitHub Pages. To go live: create `buusystems/pestleadwire`, push
-`main`, enable Pages on `main` / root, and add DNS `CNAME pestleadwire -> buusystems.github.io`.
-The join form is a `mailto:` link to ross@buusystems.com.
+    python3 -m http.server 8761      # then open http://localhost:8761/?zip=60614

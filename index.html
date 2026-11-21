@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PestLeadWire | Pest violations in your zip code, wired to the pros who fix them</title>
-  <meta name="description" content="PestLeadWire reads public pest violations and complaints by zip code and connects the buildings that need help with licensed pest control pros nearby. A BUU Systems project.">
+  <title>PestLeadWire | Weekly lists of businesses cited for pests, for pest control companies</title>
+  <meta name="description" content="Every Monday, PestLeadWire sends pest control companies a list of nearby businesses that health inspectors just cited for pest problems. 27 markets in 13 states. Free sample list.">
   <meta name="theme-color" content="#0b0b0c">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
   <meta property="og:site_name" content="PestLeadWire">
-  <meta property="og:title" content="PestLeadWire: recent pest violations in your zip code">
-  <meta property="og:description" content="Public pest violations and complaints, wired to licensed pest control pros nearby.">
+  <meta property="og:title" content="PestLeadWire: businesses cited for pests near you, every Monday">
+  <meta property="og:description" content="Weekly lists of businesses cited for pest problems on public health inspections, for pest control companies.">
   <meta property="og:url" content="https://pestleadwire.buusystems.com/">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="/styles.css?v=1">
-  <script src="/app.js?v=1" defer></script>
+  <link rel="stylesheet" href="/styles.css?v=2">
+  <script src="/app.js?v=2" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -24,11 +24,11 @@
         <span class="brand-name">Pest<b>Lead</b>Wire</span>
       </a>
       <nav aria-label="Primary">
-        <a href="#zip">Your zip</a>
+        <a href="#zip">Near you</a>
         <a href="#how">How it works</a>
-        <a href="#pros">For pros</a>
-        <a href="#owners">For owners</a>
-        <a class="pill pill-sm" href="#join">Join</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#pricing">Pricing</a>
+        <a class="pill pill-sm" href="#sample">Free list</a>
       </nav>
     </div>
   </header>
@@ -37,15 +37,20 @@
     <section class="hero">
       <div class="wrap hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="live-dot"></span> Live from city open data</p>
-          <h1>Pest problems are <em>public record</em>. We wire them to the pros who fix them.</h1>
-          <p class="lede">Every week, city inspectors cite restaurants for mice and roaches, order landlords to clear infestations, and log thousands of rat complaints. PestLeadWire reads those records by zip code and routes each one to a licensed pest control pro who covers that block.</p>
+          <p class="eyebrow"><span class="live-dot"></span> For pest control companies</p>
+          <h1>Every Monday: the businesses near you that inspectors just <em>cited for pests</em>.</h1>
+          <p class="lede">Health inspectors write up restaurants, groceries and kitchens for mice, roaches, flies and missing pest control records every day. PestLeadWire reads those public records, picks out the ones near your shop, and sends you the list with phone numbers, nearest first.</p>
           <form class="zip-form" id="zip-form" autocomplete="off">
-            <label for="zip-input" class="sr-only">Zip code</label>
-            <input id="zip-input" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="Zip code" value="10003" required>
-            <button class="pill" type="submit">See violations</button>
+            <label for="zip-input" class="sr-only">Your shop's ZIP code</label>
+            <input id="zip-input" name="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="Your ZIP" required>
+            <button class="pill" type="submit">See who's near you</button>
           </form>
-          <p class="hint">Try <button type="button" class="chip" data-zip="10003">10003</button> <button type="button" class="chip" data-zip="11226">11226</button> <button type="button" class="chip" data-zip="10458">10458</button> <button type="button" class="chip" data-zip="60614">60614</button> <button type="button" class="chip" data-zip="60647">60647</button>. Live for New York City and Chicago.</p>
+          <p class="hint">Try <button type="button" class="chip" data-zip="60614">Chicago</button> <button type="button" class="chip" data-zip="10003">New York</button> <button type="button" class="chip" data-zip="33139">Miami</button> <button type="button" class="chip" data-zip="89109">Las Vegas</button> <button type="button" class="chip" data-zip="94110">San Francisco</button></p>
+          <dl class="hero-stats" id="hero-stats">
+            <div><dt>Businesses cited, last 2 weeks</dt><dd data-stat="total">1,210</dd></div>
+            <div><dt>Markets</dt><dd data-stat="markets">27</dd></div>
+            <div><dt>States</dt><dd data-stat="states">13</dd></div>
+          </dl>
         </div>
 
         <div class="wire-visual" aria-hidden="true">
@@ -69,15 +74,15 @@
               <circle r="4"><animateMotion dur="2.2s" repeatCount="indefinite" path="M110 190 L 220 190 C 240 190, 240 70, 330 70"/></circle>
               <circle r="4"><animateMotion dur="2.9s" repeatCount="indefinite" path="M110 310 C 200 310, 200 190, 220 190 L 330 190"/></circle>
             </g>
-            <g class="node demand"><rect x="14" y="48" width="96" height="44" rx="10"/><text x="62" y="68">Restaurant</text><text x="62" y="82" class="sub">cited: mice</text></g>
-            <g class="node demand"><rect x="14" y="168" width="96" height="44" rx="10"/><text x="62" y="188">Landlord</text><text x="62" y="202" class="sub">order: roaches</text></g>
-            <g class="node demand"><rect x="14" y="288" width="96" height="44" rx="10"/><text x="62" y="308">Block</text><text x="62" y="322" class="sub">311: rats</text></g>
+            <g class="node demand"><rect x="14" y="48" width="96" height="44" rx="10"/><text x="62" y="68">Taqueria</text><text x="62" y="82" class="sub">cited: mice</text></g>
+            <g class="node demand"><rect x="14" y="168" width="96" height="44" rx="10"/><text x="62" y="188">Bakery</text><text x="62" y="202" class="sub">cited: roaches</text></g>
+            <g class="node demand"><rect x="14" y="288" width="96" height="44" rx="10"/><text x="62" y="308">Grocery</text><text x="62" y="322" class="sub">no pest log</text></g>
             <g class="hub"><circle cx="220" cy="190" r="34"/><text x="220" y="186">Lead</text><text x="220" y="200">Wire</text></g>
-            <g class="node supply"><rect x="330" y="48" width="96" height="44" rx="10"/><text x="378" y="68">Pro A</text><text x="378" y="82" class="sub">rodents · 3 zips</text></g>
-            <g class="node supply"><rect x="330" y="168" width="96" height="44" rx="10"/><text x="378" y="188">Pro B</text><text x="378" y="202" class="sub">roaches · 24 h</text></g>
-            <g class="node supply"><rect x="330" y="288" width="96" height="44" rx="10"/><text x="378" y="308">Pro C</text><text x="378" y="322" class="sub">commercial</text></g>
-            <text x="62" y="20" class="col">DEMAND</text>
-            <text x="378" y="20" class="col">SUPPLY</text>
+            <g class="node supply"><rect x="330" y="48" width="96" height="44" rx="10"/><text x="378" y="68">Your shop</text><text x="378" y="82" class="sub">ZIP + radius</text></g>
+            <g class="node supply"><rect x="330" y="168" width="96" height="44" rx="10"/><text x="378" y="188">Shop B</text><text x="378" y="202" class="sub">other leads</text></g>
+            <g class="node supply"><rect x="330" y="288" width="96" height="44" rx="10"/><text x="378" y="308">Shop C</text><text x="378" y="322" class="sub">other leads</text></g>
+            <text x="62" y="20" class="col">CITED</text>
+            <text x="378" y="20" class="col">PEST PROS</text>
           </svg>
         </div>
       </div>
@@ -87,139 +92,171 @@
       <div class="wrap">
         <div class="zip-head">
           <div>
-            <p class="kicker">Recent pest violations</p>
-            <h2 id="zip-title">Zip code 10003</h2>
-            <p class="muted" id="zip-sub">Last 90 days of public records.</p>
-          </div>
-          <div class="zip-filter" role="group" aria-label="Window">
-            <button type="button" class="seg" data-days="30">30 days</button>
-            <button type="button" class="seg is-on" data-days="90">90 days</button>
-            <button type="button" class="seg" data-days="365">1 year</button>
+            <p class="kicker">Near you</p>
+            <h2 id="zip-title">Enter your ZIP</h2>
+            <p class="muted" id="zip-sub">See how many businesses were cited for pests near your shop.</p>
           </div>
         </div>
 
         <div id="zip-status" class="status" role="status" aria-live="polite"></div>
 
-        <div class="stats" id="stats"></div>
-
-        <div class="zip-grid">
-          <div class="panel">
-            <div class="panel-head">
-              <h3>Latest records</h3>
-              <div class="tabs" role="tablist" id="source-tabs"></div>
+        <div id="zip-result" hidden>
+          <div class="big-count">
+            <div><b id="near-count">0</b></div>
+            <div>
+              <span id="near-label">businesses cited for pest problems within 10 miles</span>
+              <p class="muted" id="near-market"></p>
             </div>
-            <ol class="feed" id="feed"></ol>
-            <button type="button" class="more" id="more" hidden>Show more</button>
+            <a class="pill" href="#sample" id="near-cta">Get the full list free</a>
           </div>
-
-          <aside class="side">
-            <div class="panel">
-              <h3>By pest</h3>
-              <div class="bars" id="bars"></div>
-            </div>
-            <div class="panel lead-card" id="lead-card">
-              <p class="kicker">What a pro here receives</p>
-              <div id="lead-body"></div>
-            </div>
-          </aside>
+          <p class="table-cap"><b>The three closest</b>, as rows on your list. Phone and street are hidden here; on your list, tap a phone number to call or an address to open Maps.</p>
+          <div class="table-wrap">
+            <table class="list-mock">
+              <thead><tr><th>Business</th><th>Phone</th><th>Address</th><th>Miles</th><th>Type</th><th>Inspected</th><th>What the inspector found</th></tr></thead>
+              <tbody id="mock-rows"></tbody>
+            </table>
+          </div>
         </div>
 
-        <p class="fineprint">Records come straight from city open-data portals: NYC Department of Health restaurant inspections, NYC HPD housing violations and NYC 311; Chicago Department of Public Health food inspections and Chicago 311. A citation records what an inspector saw on that date; it does not mean the problem is still there. Housing and 311 locations are shown to the block, never the apartment.</p>
+        <p class="fineprint">From public health inspection records. A citation means the inspector noted the issue on that date; it doesn't mean the business has asked for pest control or still has the problem today. Businesses that have since passed a re-inspection are left out of your list. Counts are from <span id="asof">the latest snapshot</span>.</p>
       </div>
     </section>
 
     <section class="how" id="how">
       <div class="wrap">
         <p class="kicker">How it works</p>
-        <h2>From a city record to a booked job in four steps</h2>
+        <h2>From a health inspection to your Monday call list</h2>
         <ol class="steps">
           <li>
             <span class="step-n">01</span>
-            <h3>Signal</h3>
-            <p>We pull every new pest citation, infestation order and rodent complaint from city data as soon as it's published, and tag it by pest, zip and deadline.</p>
+            <h3>We read the records</h3>
+            <p>Every 6 hours we pull every public inspection feed we cover: 29 city, county and state feeds across 13 states.</p>
           </li>
           <li>
             <span class="step-n">02</span>
-            <h3>Score</h3>
-            <p>Each signal gets an urgency score. A restaurant facing a reinspection or a landlord with an open Class C order ranks above a single sighting on the sidewalk.</p>
+            <h3>We keep the pest findings</h3>
+            <p>Rodents, droppings, roaches, flies, gaps where pests get in, missing pest control logs. Each one is scored for urgency. Businesses that already passed a re-inspection are left out.</p>
           </li>
           <li>
             <span class="step-n">03</span>
-            <h3>Wire</h3>
-            <p>We send the lead to licensed pros who cover that zip, treat that pest, and have open capacity this week. Each pro sets their own zips and limits.</p>
+            <h3>We split them by territory</h3>
+            <p>You give us your ZIP and how far you drive. Each business goes to one pest control company a week, nearest first, and never twice to the same company.</p>
           </li>
           <li>
             <span class="step-n">04</span>
-            <h3>Close</h3>
-            <p>The pro reaches the owner with the record in hand and a fix before the reinspection. The owner keeps the treatment report on file for the inspector.</p>
+            <h3>You get the list Monday</h3>
+            <p>By email at 9 AM your time: a PDF you can tap to call or map, and an Excel file with the inspector's full notes.</p>
           </li>
         </ol>
 
         <div class="match">
           <div class="match-col demand-col">
-            <h3><span class="tag tag-demand">Demand</span> Who needs a pro</h3>
+            <h3><span class="tag tag-demand">The record</span> What we find</h3>
             <ul>
-              <li><b>Restaurants and food shops</b> cited for mice, rats, roaches or flies, with a reinspection coming.</li>
-              <li><b>Landlords and managers</b> ordered by the city to clear an infestation in a unit or common area.</li>
-              <li><b>Blocks with rising 311 complaints</b>, where building owners want to get ahead of a citation.</li>
+              <li><b>Restaurants, groceries, bakeries, cafeterias</b> and other food businesses cited on a routine or complaint inspection.</li>
+              <li><b>What the inspector wrote</b>: "evidence of mice in basement," "live roaches at dish station," "no pest control log on site."</li>
+              <li><b>Fresh</b>: inspections from the last two weeks, newest feeds within days.</li>
             </ul>
           </div>
           <div class="match-mid" aria-hidden="true"><span></span></div>
           <div class="match-col supply-col">
-            <h3><span class="tag tag-supply">Supply</span> Who fixes it</h3>
+            <h3><span class="tag tag-supply">Your list</span> What you get</h3>
             <ul>
-              <li><b>Licensed pest control operators</b>, from one-truck shops to regional firms.</li>
-              <li><b>Matched by zip, pest and job type</b>: commercial kitchens, multifamily, exclusion work.</li>
-              <li><b>Paced by capacity</b>, so a pro only gets the leads they can answer this week.</li>
+              <li><b>Business name, address, phone</b> (from the inspection feed or the business's Google listing), miles from you.</li>
+              <li><b>Facility type, inspection date, result</b>, and what the inspector found.</li>
+              <li><b>Only yours</b>: we don't send the same business to two companies in the same week.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="audience" id="pros">
+    <section class="coverage" id="coverage">
+      <div class="wrap">
+        <p class="kicker">Coverage</p>
+        <h2>27 markets in 13 states</h2>
+        <p class="muted narrow">We cover a place when its city, county or state publishes inspections with violation details. Most of the country doesn't yet, so we check again as new feeds come online. Your territory is a circle around your ZIP, so it can span more than one market.</p>
+        <p class="legend"><b>Red numbers:</b> businesses cited for pest problems in each market over the last two weeks.</p>
+        <div class="markets" id="markets"></div>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
       <div class="wrap two-up">
-        <div>
-          <p class="kicker">For pest control pros</p>
-          <h2>Leads that come with a reason to call</h2>
-          <p>Most lead lists are guesses. Ours are public records: the business, the address, the pest the inspector found and the date. You call an owner who already knows they have a problem and a deadline.</p>
+        <div class="price-card">
+          <p class="kicker">Step 1</p>
+          <h3>Free sample list</h3>
+          <p class="price">$0</p>
           <ul class="checks">
-            <li>Choose your zips, your pests, and how many leads a week you want.</li>
-            <li>See the citation behind every lead before you pay for it.</li>
-            <li>One pro per lead in each zip, so you aren't racing five others to the door.</li>
+            <li>Businesses near your ZIP, cited in the last two weeks</li>
+            <li>PDF and Excel, the same format as the weekly list</li>
+            <li>Call a few and see how it goes</li>
           </ul>
+          <a class="pill" href="#sample">Get the free list</a>
         </div>
-        <div>
-          <p class="kicker" id="owners">For property owners</p>
-          <h2>Cited? Get a licensed pro before the reinspection</h2>
-          <p>If your restaurant or building shows up here, the clock is already running. Tell us the address and we'll send a licensed pro who handles that pest in your neighborhood, usually within a day.</p>
+        <div class="price-card dark">
+          <p class="kicker">Step 2</p>
+          <h3>4-week pilot</h3>
+          <p class="price">$40<span>/week</span></p>
           <ul class="checks">
-            <li>Pros who know the inspection rules for your city.</li>
-            <li>A written treatment report you can show the inspector.</li>
-            <li>No charge to owners for the introduction.</li>
+            <li>A fresh list every Monday, unique to your company</li>
+            <li>Your ZIP, your radius, phones where we have them</li>
+            <li>Ends on its own after 4 weeks. Nothing to cancel</li>
           </ul>
+          <a class="pill" href="#sample">Start with the free list</a>
         </div>
       </div>
     </section>
 
-    <section class="join" id="join">
+    <section class="faq">
+      <div class="wrap narrow-wrap">
+        <p class="kicker">Questions</p>
+        <h2>Good to know</h2>
+        <details>
+          <summary>Where does the data come from?</summary>
+          <p>Public health inspection records that cities, counties and states publish themselves, such as the City of Chicago, New York City, the State of Florida and King County. We don't scrape anything private.</p>
+        </details>
+        <details>
+          <summary>Does a citation mean the business wants pest control?</summary>
+          <p>No. It means an inspector noted a pest problem on that date. It doesn't mean they've asked for help, and they may already have a provider. It does mean they have a reason to take your call this week.</p>
+        </details>
+        <details>
+          <summary>Will other pest control companies get the same leads?</summary>
+          <p>Each business goes to one company a week. If you choose to accept shared leads to fill out a slow week, those are marked on your list.</p>
+        </details>
+        <details>
+          <summary>Where do the phone numbers come from?</summary>
+          <p>Some inspection feeds include them (New York City, Florida, Cincinnati, Raleigh). For the rest we look up the business's public Google listing. If we can't find one, the phone column is left blank. We never guess.</p>
+        </details>
+        <details>
+          <summary>What if my area isn't covered?</summary>
+          <p>Send us your ZIP anyway. We add places as their health departments publish data, and we'll tell you when yours goes live.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="join" id="sample">
       <div class="wrap join-inner">
         <div>
-          <p class="kicker">Get on the wire</p>
-          <h2>Pilot in New York City and Chicago</h2>
-          <p class="muted">We're onboarding a small group of pros and owners per zip. Tell us which side you're on.</p>
+          <p class="kicker">Free sample list</p>
+          <h2>See who was cited near you this week</h2>
+          <p class="muted">Tell us where your shop is and how far you drive. We'll email you a free list of nearby businesses cited for pest problems, in the same format as the Monday list.</p>
         </div>
         <form class="join-form" id="join-form">
-          <div class="side-pick" role="radiogroup" aria-label="I am">
-            <label><input type="radio" name="side" value="pro" checked> I'm a pest control pro</label>
-            <label><input type="radio" name="side" value="owner"> I need a pro</label>
+          <label>Your name <input name="name" autocomplete="name" required></label>
+          <label>Company <input name="company" autocomplete="organization" required></label>
+          <div class="row2">
+            <label>Shop ZIP <input name="zip" id="form-zip" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" required></label>
+            <label>How far you drive
+              <select name="radius">
+                <option>5 miles</option><option selected>10 miles</option><option>15 miles</option><option>25 miles</option><option>50 miles</option>
+              </select>
+            </label>
           </div>
-          <label>Name <input name="name" required></label>
-          <label>Company or property <input name="org"></label>
-          <label>Zip codes <input name="zips" placeholder="10003, 11226" required></label>
-          <label>Phone or email <input name="contact" required></label>
-          <button class="pill" type="submit">Send</button>
-          <p class="hint" id="join-note">Opens your email app with the details filled in.</p>
+          <label>Email <input name="email" type="email" autocomplete="email" required></label>
+          <label>Phone (optional) <input name="phone" type="tel" autocomplete="tel"></label>
+          <button class="pill" type="submit">Send me the free list</button>
+          <p class="hint" id="join-note">Opens your email app with the details filled in. Or write to <a href="mailto:pestleadwire@gmail.com">pestleadwire@gmail.com</a>.</p>
         </form>
       </div>
     </section>
@@ -227,8 +264,8 @@
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <span>PestLeadWire is a <a href="https://buusystems.com/">BUU Systems</a> project.</span>
-      <span class="muted">Public records via NYC Open Data and the Chicago Data Portal.</span>
+      <span>PestLeadWire is operated by <a href="https://buusystems.com/">BUU Systems LLC</a>.</span>
+      <span class="muted">From public health inspection records. <a href="mailto:pestleadwire@gmail.com">pestleadwire@gmail.com</a></span>
     </div>
   </footer>
 </body>
