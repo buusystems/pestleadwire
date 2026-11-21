@@ -68,7 +68,7 @@ function showZip(zip) {
   $("#near-count").textContent = count.toLocaleString();
   $("#near-label").textContent = `business${count === 1 ? "" : "es"} cited for pest problems within ${DATA.radius} miles in the last ${DATA.days} days`;
   $("#near-market").textContent = count
-    ? `Your list would start with the closest ones. Want a wider circle? Tell us how far you drive.`
+    ? `The free sample is 10 of the closest. On the pilot, up to 10 new ones arrive every Monday, and no other company gets them that week.`
     : `None inside ${DATA.radius} miles in this window. Most shops drive further: tell us your radius.`;
 
   const rows = ex.map(([i, mi]) => ({ ...DATA.examples[i], mi }));
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const f = new FormData(e.target);
     const lines = [
       `Name: ${f.get("name")}`, `Company: ${f.get("company")}`, `Shop ZIP: ${f.get("zip")}`, `Radius: ${f.get("radius")}`,
-      `Email: ${f.get("email")}`, `Phone: ${f.get("phone") || ""}`, "", "Please send me the free sample list.",
+      `Email: ${f.get("email")}`, `Phone: ${f.get("phone") || ""}`, "", "Please send me the free sample (10 businesses).",
     ];
     location.href = `mailto:pestleadwire@gmail.com?subject=${encodeURIComponent(`Free sample list: ${f.get("company")} (${f.get("zip")})`)}&body=${encodeURIComponent(lines.join("\n"))}`;
   });
